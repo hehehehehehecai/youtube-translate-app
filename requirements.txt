@@ -1,0 +1,5 @@
+flet
+yt-dlp
+google-generativeai
+requests
+urllib3
