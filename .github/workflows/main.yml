@@ -21,11 +21,11 @@ jobs:
       - name: 3. 安装依赖
         run: |
           pip install flet
-          # 尝试安装 requirements.txt，如果文件有问题则忽略，防止卡死
           if [ -f requirements.txt ]; then pip install -r requirements.txt || echo "Warning: Failed to install requirements"; fi
 
       - name: 4. 开始打包 APK
-        run: flet build apk --verbose
+        # 修改点在这里：加上 echo "y" | 自动通过确认
+        run: echo "y" | flet build apk --verbose
 
       - name: 5. 上传打包结果
         uses: actions/upload-artifact@v4
